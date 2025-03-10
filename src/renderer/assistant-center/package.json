@@ -1,0 +1,76 @@
+{
+  "name": "assistant-center",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "app": {
+    "key": "assistant-center",
+    "entry": "dist/app.mjs",
+    "type": "system-app",
+    "files": [
+      "dist",
+      "pem",
+      "root"
+    ]
+  },
+  "scripts": {
+    "watch": "rollup -c rollup.config.mjs -w",
+    "dev": "cross-env NODE_ENV=development nodemon --delay 2.5 -e js,cjs,mjs --exec node dist/app.mjs",
+    "build": "rollup -c rollup.config.mjs",
+    "test": "tsx  test/**/*.ts",
+    "dev:watch": "cross-env NODE_ENV=development concurrently -n \"Watch,Dev\" -c \"green,blue\" \"npm run watch\" \"sleep 1 && npm run dev\" ",
+    "clean": "rm -rf dist",
+    "prepub": "envision switch root",
+    "pub": "npm run build && envision pack -p -u"
+  },
+  "keywords": [],
+  "author": "abearxiong <xiongxiao@xiongxiao.me>",
+  "license": "MIT",
+  "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "pem",
+    "root"
+  ],
+  "dependencies": {
+    "@kevisual/code-center-module": "0.0.13",
+    "@kevisual/mark": "0.0.7",
+    "@kevisual/router": "0.0.9",
+    "cookie": "^1.0.2",
+    "dayjs": "^1.11.13",
+    "formidable": "^3.5.2",
+    "json5": "^2.2.3",
+    "lodash-es": "^4.17.21",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {
+    "@kevisual/assistant-module": "workspace:*",
+    "@kevisual/types": "^0.0.6",
+    "@kevisual/use-config": "^1.0.9",
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/crypto-js": "^4.2.2",
+    "@types/formidable": "^3.4.5",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.13.9",
+    "@types/ws": "^8.18.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.9",
+    "pm2": "^5.4.3",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.34.9",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "tape": "^5.9.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "pnpm": {}
+}

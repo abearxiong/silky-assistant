@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Config Page</title>
+</head>
+
+<body>
+  <h1>配置完成后重启</h1>
+  <button id="restart">重启</button>
+</body>
+
+<script>
+  const restart = document.getElementById('restart');
+  restart.addEventListener('click', () => {
+    window.electron.ipcRenderer.invoke('relunch');
+  });
+</script>
+
+</html>
