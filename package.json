@@ -1,14 +1,19 @@
 {
   "name": "silky-assistant",
   "version": "0.0.1",
-  "description": "",
-  "main": "dist/main/main.js",
+  "description": "Silky Assistant",
+  "main": "app-dist/main.js",
   "scripts": {
     "dev": "vite --config vite.config.ts",
-    "build": "vite build --config vite.config.ts",
-    "build:watch": "vite build --config vite.config.ts -w",
-    "build:electron": "vite build --config vite.config.ts",
-    "start": "electron ."
+    "build": "cross-env NODE_ENV=production vite build --config vite.config.ts",
+    "build:watch": "cross-env NODE_ENV=development vite build --config vite.config.ts -w",
+    "build:mac": "electron-builder --mac --win",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "watch:electron": "electron app-dist/main.js --watch",
+    "start": "electron .",
+    "html": "tsx scripts/clear-directory.ts",
+    "pub": "ev deploy ./build -k silky-assistant -v 0.0.1 -u -o root"
   },
   "keywords": [],
   "author": "abearxiong <xiongxiao@xiongxiao.me>",
@@ -17,6 +22,9 @@
   "devDependencies": {
     "@types/electron": "^1.6.12",
     "@types/node": "^22.13.9",
+    "cross-env": "^7.0.3",
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8",
     "electron-log": "^5.3.2",
     "electron-updater": "^6.3.9",
     "typescript": "^5.8.2",
@@ -27,6 +35,43 @@
   "dependencies": {
     "@kevisual/assistant-module": "^0.0.3",
     "@kevisual/router": "^0.0.9",
-    "electron": "^35.0.0"
+    "@kevisual/use-config": "^1.0.9"
+  },
+  "build": {
+    "appId": "cn.silkeyai.assistant",
+    "productName": "Silky Assistant",
+    "copyright": "Copyright © 2025 ${author}",
+    "icon": "icons/app-512x512.png",
+    "directories": {
+      "output": "build"
+    },
+    "extraResources": [
+      {
+        "from": "./dist/",
+        "to": "dist"
+      }
+    ],
+    "files": [
+      "app-dist/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "icons"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }

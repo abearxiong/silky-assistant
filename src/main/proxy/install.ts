@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { appDir, kevisualUrl, addAppConfig, getAppConfig, setAppConfig, getCacheAssistantConfig, setConfig } from '../../modules/config';
+import { appDir, kevisualUrl, addAppConfig, getAppConfig, setAppConfig, getCacheAssistantConfig, setConfig } from '../../modules/config/index.ts';
 
 export const demoData = {
   id: '471ee96f-d7d8-4da1-b84f-4a34f4732f16',

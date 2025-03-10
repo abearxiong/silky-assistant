@@ -1,7 +1,7 @@
 import { ipcMain } from 'electron';
-import { getAppList, getCacheAssistantConfig, setConfig } from '@/modules/config';
-import { installApp, uninstallApp } from '../proxy/install';
-import { relunch } from '../window/relunch';
+import { getAppList, getCacheAssistantConfig, setConfig } from '@/modules/config/index.ts';
+import { installApp, uninstallApp } from '../proxy/install.ts';
+import { relunch } from '../window/relunch.ts';
 
 export const handle = () => {
   ipcMain.handle('get-app-list', (event, data) => {

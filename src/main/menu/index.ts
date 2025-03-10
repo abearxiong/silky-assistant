@@ -1,10 +1,11 @@
-import { createEnterPage } from '../window/page/enter';
+import { createEnterPage } from '../window/page/enter.ts';
 import { BrowserWindow, Menu, app } from 'electron';
 
 import path from 'path';
-import { getLogPath, log } from '../logger';
-import { createAppPackagesPage } from '../window/page/app-packages';
-import { relunch } from '../window/relunch';
+import { getLogPath, log } from '../logger.ts';
+import { createAppPackagesPage } from '../window/page/app-packages.ts';
+import { relunch } from '../window/relunch.ts';
+import { checkShowPage } from '../window/page/index.ts';
 export const loadMenu = () => {
   const template = [
     {
@@ -33,10 +34,39 @@ export const loadMenu = () => {
       ],
     },
     {
+      label: '打开应用',
+      submenu: [
+        {
+          label: '首页',
+          click: () => {
+            // 获取当前window
+            const mainWindow = BrowserWindow.getFocusedWindow();
+            if (mainWindow) {
+              checkShowPage(mainWindow);
+            }
+          },
+        },
+        {
+          label: '打开配置',
+          click: async () => {
+            createEnterPage();
+          },
+        },
+        {
+          label: '打开应用市场',
+          click: async () => {
+            createAppPackagesPage();
+          },
+        },
+      ],
+    },
+    {
       label: '编辑',
       submenu: [
         { label: '复制', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
         { label: '粘贴', accelerator: 'CmdOrCtrl+V', selector: 'paste:' },
+        { label: '撤销', accelerator: 'CmdOrCtrl+Z', selector: 'undo:' },
+        { label: '全选', accelerator: 'CmdOrCtrl+A', selector: 'selectAll:' },
       ],
     },
     {
@@ -73,30 +103,11 @@ export const loadMenu = () => {
       role: 'help',
       submenu: [
         {
-          label: '文档',
-          click: async () => {
-            const { shell } = require('electron');
-            // shell.openExternal('http://adstudio.nisar.ai/docs/');
-          },
-        },
-        {
           label: '打开日志',
           click: async () => {
             const { shell } = require('electron');
             log.transports.file.fileName;
             shell.openExternal('file://' + path.join(getLogPath()));
-          },
-        },
-        {
-          label: '打开配置',
-          click: async () => {
-            createEnterPage();
-          },
-        },
-        {
-          label: '打开应用市场',
-          click: async () => {
-            createAppPackagesPage();
           },
         },
       ],

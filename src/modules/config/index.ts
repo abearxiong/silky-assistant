@@ -1,14 +1,13 @@
 import path from 'path';
 import { homedir } from 'os';
 import fs from 'fs';
-import { checkFileExists, createDir } from '../file';
+import { checkFileExists, createDir } from '../file/index.ts';
 
 export const kevisualUrl = 'https://kevisual.xiongxiao.me';
-const configDir = createDir(path.join(homedir(), '.config/envision'));
+export const configDir = createDir(path.join(homedir(), '.config/envision'));
 export const configPath = path.join(configDir, 'assistant-config.json');
 export const appConfigPath = path.join(configDir, 'assistant-app-config.json');
 export const appDir = createDir(path.join(configDir, 'assistant-app/frontend'));
-export const LocalElectronAppUrl = 'https://assistant.app/user/tiptap/';
 
 type AssistantConfig = {
   pageApi?: string; // https://kevisual.silkyai.cn
@@ -21,7 +20,7 @@ export const getConfig = () => {
     if (!checkFileExists(configPath)) {
       fs.writeFileSync(configPath, JSON.stringify({ proxy: [] }, null, 2));
       return {
-        loadURL: LocalElectronAppUrl,
+        loadURL: '',
         pageApi: '',
         proxy: [],
       };
@@ -31,7 +30,7 @@ export const getConfig = () => {
   } catch (error) {
     console.error(error);
     return {
-      loadURL: LocalElectronAppUrl,
+      loadURL: '',
       pageApi: '',
       proxy: [],
     };

@@ -1,0 +1,1 @@
+ev micro-app download -i assistant-center-0.0.1.tgz -o release/assistant-center.tgz -x assistant-center

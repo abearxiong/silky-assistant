@@ -25,17 +25,17 @@ export default defineConfig({
               format: 'esm', // 设置输出格式为 ESM
             },
           },
-          outDir: 'dist/main', // 主进程输出目录
+          outDir: 'app-dist', // 主进程输出目录
         },
       },
     }),
 
     viteStaticCopy({
       targets: [
-        { src: 'src/renderer', dest: '' },
+        { src: 'src/renderer/assistant-center/*', dest: '../dist' },
         {
           src: 'src/main/preload.js',
-          dest: 'main',
+          dest: '../app-dist',
         },
       ],
     }),

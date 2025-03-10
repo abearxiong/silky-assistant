@@ -21,7 +21,8 @@
     "dev:watch": "cross-env NODE_ENV=development concurrently -n \"Watch,Dev\" -c \"green,blue\" \"npm run watch\" \"sleep 1 && npm run dev\" ",
     "clean": "rm -rf dist",
     "prepub": "envision switch root",
-    "pub": "npm run build && envision pack -p -u"
+    "pub": "npm run build && envision pack -p -u",
+    "download": "ev app download -i root/assistant-base-app"
   },
   "keywords": [],
   "author": "abearxiong <xiongxiao@xiongxiao.me>",
@@ -40,6 +41,7 @@
     "cookie": "^1.0.2",
     "dayjs": "^1.11.13",
     "formidable": "^3.5.2",
+    "get-port": "^7.1.0",
     "json5": "^2.2.3",
     "lodash-es": "^4.17.21",
     "ws": "^8.18.1"
