@@ -61,6 +61,9 @@ export const createProcess = async () => {
           if (msg.type === 'fork') {
             resolve({ process: assistantProcess, port: msg.data?.port || processConfig.port });
           }
+          if (msg.type === 'reload') {
+            restartProcess();
+          }
         }
       });
       assistantProcess.on('error', (error) => {
@@ -75,7 +78,9 @@ export const createProcess = async () => {
     }
   });
 };
-
+export const restartProcess = async () => {
+  await createProcess();
+};
 export const closeProcess = () => {
   log.info('closeProcess');
   removeProcessPid();

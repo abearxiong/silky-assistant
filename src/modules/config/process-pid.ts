@@ -23,7 +23,6 @@ export const removeProcessPid = () => {
       process.kill(parseInt(pid));
       fs.unlinkSync(processPidPath);
     } catch (error) {
-      console.error(error);
     }
   }
 };

@@ -5,7 +5,13 @@ import { BrowserWindow } from 'electron';
 import { getOrigin } from '@/main/process/index.ts';
 import { createWinodw } from './create-window.ts';
 
-export const checkShowPage = async (window?: BrowserWindow) => {
+/**
+ *
+ * @param window
+ * @param openUrl /web/note
+ * @returns
+ */
+export const checkShowPage = async (window?: BrowserWindow, openUrl?: string) => {
   const assistantConfig = getCacheAssistantConfig();
   const { pageApi, proxy, loadURL } = assistantConfig;
   if (!pageApi) {
@@ -16,6 +22,11 @@ export const checkShowPage = async (window?: BrowserWindow) => {
   }
   window = createWinodw(window);
   let defaultURL = getOrigin() + '/web/note/';
+  if (openUrl) {
+    defaultURL = getOrigin() + openUrl;
+    window?.loadURL(defaultURL);
+    return window;
+  }
   if (loadURL) {
     const url = new URL(loadURL, getOrigin());
     const urls = url.pathname.split('/');

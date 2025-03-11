@@ -3,3 +3,5 @@ dist
 app-dist
 build
 .DS_Store
+
+src/**/dist/**

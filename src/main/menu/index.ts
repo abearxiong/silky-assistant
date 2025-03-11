@@ -47,6 +47,26 @@ export const loadMenu = () => {
           },
         },
         {
+          label: 'note',
+          click: () => {
+            // 获取当前window
+            const mainWindow = BrowserWindow.getFocusedWindow();
+            if (mainWindow) {
+              checkShowPage(mainWindow, '/web/note');
+            }
+          },
+        },
+        {
+          label: 'root-center',
+          click: () => {
+            // 获取当前window
+            const mainWindow = BrowserWindow.getFocusedWindow();
+            if (mainWindow) {
+              checkShowPage(mainWindow, '/root/center');
+            }
+          },
+        },
+        {
           label: '打开配置',
           click: async () => {
             createEnterPage();
