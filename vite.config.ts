@@ -3,7 +3,8 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import electron from 'vite-plugin-electron';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 export default defineConfig({
   plugins: [
     electron({
@@ -24,6 +25,8 @@ export default defineConfig({
             output: {
               format: 'esm', // 设置输出格式为 ESM
             },
+            // external: ['electron-updater', 'electron-log'],
+            // external: ['electron-updater'],
           },
           outDir: 'app-dist', // 主进程输出目录
         },

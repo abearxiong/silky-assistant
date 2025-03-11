@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
+    "module": "CommonJS",
     "noImplicitAny": false,
     "sourceMap": false,
     "outDir": "app-dist",
@@ -21,7 +21,7 @@
     "declaration": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "isolatedModules": false,
     "resolveJsonModule": true,
     "types": []

@@ -1,6 +1,6 @@
 import { createEnterPage } from '../window/page/enter.ts';
 import { BrowserWindow, Menu, app } from 'electron';
-
+import { shell } from 'electron';
 import path from 'path';
 import { getLogPath, log } from '../logger.ts';
 import { createAppPackagesPage } from '../window/page/app-packages.ts';
@@ -125,7 +125,6 @@ export const loadMenu = () => {
         {
           label: '打开日志',
           click: async () => {
-            const { shell } = require('electron');
             log.transports.file.fileName;
             shell.openExternal('file://' + path.join(getLogPath()));
           },

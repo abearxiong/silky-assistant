@@ -1,6 +1,6 @@
 {
   "name": "silky-assistant",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Silky Assistant",
   "main": "app-dist/main.js",
   "scripts": {
@@ -13,29 +13,31 @@
     "watch:electron": "electron app-dist/main.js --watch",
     "start": "electron .",
     "html": "tsx scripts/clear-directory.ts",
-    "pub": "ev deploy ./build -k silky-assistant -v 0.0.1 -u -o root"
+    "prepub": "pnpm html",
+    "pub": "ev deploy ./build -k silky-assistant -v 0.0.2 -u -o root"
   },
   "keywords": [],
   "author": "abearxiong <xiongxiao@xiongxiao.me>",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@types/electron": "^1.6.12",
     "@types/node": "^22.13.9",
     "cross-env": "^7.0.3",
-    "electron": "^35.0.0",
+    "typescript": "^5.8.2",
     "electron-builder": "^25.1.8",
     "electron-log": "^5.3.2",
-    "electron-updater": "^6.3.9",
-    "typescript": "^5.8.2",
     "vite": "^6.2.1",
     "vite-plugin-electron": "^0.29.0",
+    "electron": "^35.0.0",
     "vite-plugin-static-copy": "^2.3.0"
   },
   "dependencies": {
     "@kevisual/assistant-module": "^0.0.3",
-    "@kevisual/router": "^0.0.9",
-    "@kevisual/use-config": "^1.0.9"
+    "@kevisual/use-config": "^1.0.9",
+    "electron-updater": "^6.3.9"
   },
   "build": {
     "appId": "cn.silkeyai.assistant",
@@ -72,6 +74,13 @@
     },
     "linux": {
       "target": "AppImage"
-    }
-  }
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://kevisual.silkyai.cn/root/silky-assistant/"
+      }
+    ]
+  },
+  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
 }

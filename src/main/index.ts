@@ -7,7 +7,8 @@ import { loadMenu } from './menu/index.ts';
 import { getLogPath, log } from './app.ts';
 import { checkShowPage } from './window/page/index.ts';
 import { closeProcess, createProcess } from './process/index.ts';
-import { getElectronResourcePath } from './system/env.ts';
+import { getElectronResourcePath, isMac } from './system/env.ts';
+import { checkForUpdates } from './updater/index.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -39,6 +40,9 @@ async function createWindow() {
 app.on('ready', async () => {
   await createProcess();
   createWindow();
+  if (!isMac()) {
+    checkForUpdates();
+  }
 });
 
 app.on('window-all-closed', () => {
