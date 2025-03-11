@@ -1,1 +1,1 @@
-ev micro-app download -i assistant-center-0.0.2.tgz -o release/assistant-center.tgz -x assistant-center -r https://kevisual.silkyai.cn
+ev micro-app download -i assistant-center-0.0.3.tgz -o release/assistant-center.tgz -x assistant-center -r https://kevisual.silkyai.cn

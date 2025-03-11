@@ -1,6 +1,6 @@
 {
   "name": "assistant-center",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "app": {
@@ -74,5 +74,6 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },
-  "pnpm": {}
+  "pnpm": {},
+  "packageManager": "pnpm@9.14.4"
 }
