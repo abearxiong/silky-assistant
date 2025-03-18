@@ -9,6 +9,8 @@ import { checkShowPage } from './window/page/index.ts';
 import { closeProcess, createProcess } from './process/index.ts';
 import { getElectronResourcePath, isMac } from './system/env.ts';
 import { checkForUpdates } from './updater/index.ts';
+
+// @ts-ignore
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

@@ -11,12 +11,15 @@ importers:
       '@kevisual/assistant-module':
         specifier: ^0.0.3
         version: 0.0.3
-      '@kevisual/router':
-        specifier: ^0.0.9
-        version: 0.0.9
       '@kevisual/use-config':
         specifier: ^1.0.9
         version: 1.0.9
+      electron-updater:
+        specifier: ^6.3.9
+        version: 6.3.9
+      node-pty:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^28.0.3
@@ -42,9 +45,6 @@ importers:
       electron-log:
         specifier: ^5.3.2
         version: 5.3.2
-      electron-updater:
-        specifier: ^6.3.9
-        version: 6.3.9
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
@@ -260,9 +260,6 @@ packages:
   '@kevisual/load@0.0.4':
     resolution: {integrity: sha512-TJBieKsEoEPfP4+tDyhNZdMX2LMAGiDZ/IrAXPFWB4jeFP0Ywm1W5xDV52LhhHq4nwTmuhyTVmPxJYiEVYTHtA==}
 
-  '@kevisual/router@0.0.9':
-    resolution: {integrity: sha512-qPyC2GVJ7iOIdJCCKNDsWMAKOQeSJW9HBpL5ZWKHTbi+t4jJBGTzIlXmjKeMHRd0lr/Qq1imQvlkSh4hlrbodA==}
-
   '@kevisual/use-config@1.0.9':
     resolution: {integrity: sha512-lJz98WWL178QUaf/rkM9feMm0aUnYd6ikm3ma/9Zi/K2QNrxbTRAgMGkCggUalAES8IbUvEsg+Q+Y2RaPLxCmw==}
 
@@ -467,9 +464,6 @@ packages:
 
   '@types/ms@2.1.0':
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
-
-  '@types/node-forge@1.3.11':
-    resolution: {integrity: sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ==}
 
   '@types/node@22.13.9':
     resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
@@ -1446,6 +1440,9 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
+  nan@2.22.2:
+    resolution: {integrity: sha512-DANghxFkS1plDdRsX0X9pm0Z6SJNN6gBdtXfanwoZ8hooC5gosGFSBGRYHUVPz1asKA/kMRqDRdHrluZ61SpBQ==}
+
   nanoid@3.3.8:
     resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -1465,14 +1462,13 @@ packages:
   node-api-version@0.2.0:
     resolution: {integrity: sha512-fthTTsi8CxaBXMaBAD7ST2uylwvsnYxh2PfaScwpMhos6KlSFajXQPcM4ogNE1q2s3Lbz9GCGqeIHC+C6OZnKg==}
 
-  node-forge@1.3.1:
-    resolution: {integrity: sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA==}
-    engines: {node: '>= 6.13.0'}
-
   node-gyp@9.4.1:
     resolution: {integrity: sha512-OQkWKbjQKbGkMf/xqI1jjy3oCTgMKJac58G2+bjZb3fza6gW2YrCSdMQYaoTb70crvE//Gngr4f0AgVHmqHvBQ==}
     engines: {node: ^12.13 || ^14.13 || >=16}
     hasBin: true
+
+  node-pty@1.0.0:
+    resolution: {integrity: sha512-wtBMWWS7dFZm/VgqElrTvtfMq4GzJ6+edFI0Y0zyzygUSZMgZdraDUMUhCIvkjhJjme15qWmbyJbtAx4ot4uZA==}
 
   nopt@6.0.0:
     resolution: {integrity: sha512-ZwLpbTgdhuZUnZzjd7nb1ZV+4DoiC6/sfiVKok72ym/4Tlf+DFdlHYmT2JPmcNNWV6Pi3SDf1kT+A4r9RTuT9g==}
@@ -1544,10 +1540,6 @@ packages:
   path-scurry@1.11.1:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
     engines: {node: '>=16 || 14 >=14.18'}
-
-  path-to-regexp@8.2.0:
-    resolution: {integrity: sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==}
-    engines: {node: '>=16'}
 
   pe-library@0.4.1:
     resolution: {integrity: sha512-eRWB5LBz7PpDu4PUlwT0PhnQfTQJlDDdPa35urV4Osrm0t0AqQFGn+UIkU3klZvwJ8KPO3VbBFsXquA6p6kqZw==}
@@ -1692,10 +1684,6 @@ packages:
 
   sax@1.4.1:
     resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==}
-
-  selfsigned@2.4.1:
-    resolution: {integrity: sha512-th5B4L2U+eGLq1TVh7zNRGBapioSORUeymIydxgFpwww9d2qyKvtuPU2jJuHvYAwwqi2Y596QBL3eEqcPEYL8Q==}
-    engines: {node: '>=10'}
 
   semver-compare@1.0.0:
     resolution: {integrity: sha512-YM3/ITh2MJ5MtzaM429anh+x2jiLVjqILF4m4oyQB18W7Ggea7BfqdH/wGMK7dDiMghv/6WG7znWMwUDzJiXow==}
@@ -2190,15 +2178,6 @@ snapshots:
     dependencies:
       eventemitter3: 5.0.1
 
-  '@kevisual/router@0.0.9':
-    dependencies:
-      path-to-regexp: 8.2.0
-      selfsigned: 2.4.1
-      ws: 8.18.1
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-
   '@kevisual/use-config@1.0.9':
     dependencies:
       '@kevisual/load': 0.0.4
@@ -2366,10 +2345,6 @@ snapshots:
       '@types/node': 22.13.9
 
   '@types/ms@2.1.0': {}
-
-  '@types/node-forge@1.3.11':
-    dependencies:
-      '@types/node': 22.13.9
 
   '@types/node@22.13.9':
     dependencies:
@@ -3533,6 +3508,8 @@ snapshots:
 
   ms@2.1.3: {}
 
+  nan@2.22.2: {}
+
   nanoid@3.3.8: {}
 
   negotiator@0.6.4: {}
@@ -3547,8 +3524,6 @@ snapshots:
   node-api-version@0.2.0:
     dependencies:
       semver: 7.7.1
-
-  node-forge@1.3.1: {}
 
   node-gyp@9.4.1:
     dependencies:
@@ -3566,6 +3541,10 @@ snapshots:
     transitivePeerDependencies:
       - bluebird
       - supports-color
+
+  node-pty@1.0.0:
+    dependencies:
+      nan: 2.22.2
 
   nopt@6.0.0:
     dependencies:
@@ -3633,8 +3612,6 @@ snapshots:
     dependencies:
       lru-cache: 10.4.3
       minipass: 7.1.2
-
-  path-to-regexp@8.2.0: {}
 
   pe-library@0.4.1: {}
 
@@ -3793,11 +3770,6 @@ snapshots:
       truncate-utf8-bytes: 1.0.2
 
   sax@1.4.1: {}
-
-  selfsigned@2.4.1:
-    dependencies:
-      '@types/node-forge': 1.3.11
-      node-forge: 1.3.1
 
   semver-compare@1.0.0:
     optional: true
