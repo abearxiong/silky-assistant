@@ -22,22 +22,22 @@
   "type": "module",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.3",
-    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/electron": "^1.6.12",
-    "@types/node": "^22.13.9",
+    "@types/node": "^22.15.18",
     "cross-env": "^7.0.3",
-    "electron": "^35.0.0",
-    "electron-builder": "^25.1.8",
-    "electron-log": "^5.3.2",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.1",
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.12",
+    "electron-log": "^5.4.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
     "vite-plugin-electron": "^0.29.0",
-    "vite-plugin-static-copy": "^2.3.0"
+    "vite-plugin-static-copy": "^3.0.0"
   },
   "dependencies": {
     "@kevisual/assistant-module": "^0.0.3",
-    "@kevisual/use-config": "^1.0.9",
-    "electron-updater": "^6.3.9",
+    "@kevisual/use-config": "^1.0.17",
+    "electron-updater": "^6.6.2",
     "node-pty": "^1.0.0"
   },
   "build": {
@@ -83,5 +83,5 @@
       }
     ]
   },
-  "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab"
+  "packageManager": "pnpm@10.11.0"
 }
