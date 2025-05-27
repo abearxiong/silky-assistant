@@ -1,5 +1,8 @@
 import { BrowserWindow } from 'electron';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 export const createTransWindow = () => {
   const window = new BrowserWindow({
     width: 800,
@@ -16,7 +19,7 @@ export const createTransWindow = () => {
 
 export const createDemoWinodw = (window?: BrowserWindow, opts?: any) => {
   if (window) return window;
-  return new BrowserWindow({
+  window = new BrowserWindow({
     width: 800,
     height: 600,
     ...opts,
@@ -26,4 +29,6 @@ export const createDemoWinodw = (window?: BrowserWindow, opts?: any) => {
       ...opts?.webPreferences,
     },
   });
+  window.loadURL(process?.env?.ASSISTANT_HOME ?? 'https://kevisual.silkyai.cn/root/talkshow-admin/');
+  return window;
 };
