@@ -8,8 +8,8 @@ import { getLogPath, log } from './app.ts';
 import { checkShowPage } from './window/page/index.ts';
 import { closeProcess, createProcess } from './process/index.ts';
 import { getElectronResourcePath, isMac } from './system/env.ts';
-import { checkForUpdates } from './updater/index.ts';
-import { createTransWindow } from './browsers/trans.ts';
+// import { checkForUpdates } from './updater/index.ts';
+import { createTransWindow, createDemoWinodw } from './browsers/trans.ts';
 
 // @ts-ignore
 const __filename = fileURLToPath(import.meta.url);
@@ -22,19 +22,9 @@ async function createWindow() {
   log.info('resourcePath', resourcePath);
   log.info('createWindow');
   log.info('path', getLogPath());
-  const _session = createSession();
-  // mainWindow = new BrowserWindow({
-  //   width: 800,
-  //   height: 600,
-  //   webPreferences: {
-  //     preload: path.join(__dirname, 'preload.js'), // 如果有 preload 脚本
-  //     session: _session,
-  //     webSecurity: false,
-  //   },
-  // });
   loadMenu();
   // await checkShowPage(mainWindow);
-  let transWindow = createTransWindow();
+  let transWindow = createDemoWinodw();
   transWindow.on('closed', () => {
     transWindow = null;
   });
@@ -46,9 +36,9 @@ async function createWindow() {
 app.on('ready', async () => {
   // await createProcess();
   createWindow();
-  if (!isMac()) {
-    checkForUpdates();
-  }
+  // if (!isMac()) {
+  //   checkForUpdates();
+  // }
 });
 
 app.on('window-all-closed', () => {

@@ -1,20 +1,20 @@
 {
   "name": "silky-assistant",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Silky Assistant",
   "main": "app-dist/main.js",
   "scripts": {
     "dev": "vite --config vite.config.ts",
     "build": "cross-env NODE_ENV=production vite build --config vite.config.ts",
     "build:watch": "cross-env NODE_ENV=development vite build --config vite.config.ts -w",
-    "build:mac": "electron-builder --mac --win",
+    "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win",
     "build:linux": "electron-builder --linux",
     "watch:electron": "electron app-dist/main.js --watch",
     "start": "electron .",
     "html": "tsx scripts/clear-directory.ts",
     "prepub": "pnpm html",
-    "pub": "ev deploy ./build -k silky-assistant -v 0.0.2 -u -o root"
+    "pub": "ev deploy ./build -k silky-assistant -v 0.0.3 -u -o root"
   },
   "keywords": [],
   "author": "abearxiong <xiongxiao@xiongxiao.me>",
@@ -23,10 +23,9 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "@types/electron": "^1.6.12",
-    "@types/node": "^22.15.18",
+    "@types/node": "^22.15.21",
     "cross-env": "^7.0.3",
-    "electron": "^36.2.1",
+    "electron": "^36.3.1",
     "electron-builder": "^26.0.12",
     "electron-log": "^5.4.0",
     "typescript": "^5.8.3",
@@ -35,10 +34,8 @@
     "vite-plugin-static-copy": "^3.0.0"
   },
   "dependencies": {
-    "@kevisual/assistant-module": "^0.0.3",
     "@kevisual/use-config": "^1.0.17",
-    "electron-updater": "^6.6.2",
-    "node-pty": "^1.0.0"
+    "electron-updater": "^6.6.2"
   },
   "build": {
     "appId": "cn.silkeyai.assistant",

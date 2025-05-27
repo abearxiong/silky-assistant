@@ -33,15 +33,15 @@ export default defineConfig({
       },
     }),
 
-    viteStaticCopy({
-      targets: [
-        { src: 'src/renderer/assistant-center/*', dest: '../dist' },
-        {
-          src: 'src/main/preload.js',
-          dest: '../app-dist',
-        },
-      ],
-    }),
+    // viteStaticCopy({
+    //   targets: [
+    //     { src: 'src/renderer/assistant-center/*', dest: '../dist' },
+    //     {
+    //       src: 'src/main/preload.js',
+    //       dest: '../app-dist',
+    //     },
+    //   ],
+    // }),
   ],
   define: {},
   build: {

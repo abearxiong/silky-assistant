@@ -33,53 +33,53 @@ export const loadMenu = () => {
         // },
       ],
     },
-    {
-      label: '打开应用',
-      submenu: [
-        {
-          label: '首页',
-          click: () => {
-            // 获取当前window
-            const mainWindow = BrowserWindow.getFocusedWindow();
-            if (mainWindow) {
-              checkShowPage(mainWindow);
-            }
-          },
-        },
-        {
-          label: 'note',
-          click: () => {
-            // 获取当前window
-            const mainWindow = BrowserWindow.getFocusedWindow();
-            if (mainWindow) {
-              checkShowPage(mainWindow, '/web/note');
-            }
-          },
-        },
-        {
-          label: 'root-center',
-          click: () => {
-            // 获取当前window
-            const mainWindow = BrowserWindow.getFocusedWindow();
-            if (mainWindow) {
-              checkShowPage(mainWindow, '/root/center');
-            }
-          },
-        },
-        {
-          label: '打开配置',
-          click: async () => {
-            createEnterPage();
-          },
-        },
-        {
-          label: '打开应用市场',
-          click: async () => {
-            createAppPackagesPage();
-          },
-        },
-      ],
-    },
+    // {
+    //   label: '打开应用',
+    //   submenu: [
+    //     {
+    //       label: '首页',
+    //       click: () => {
+    //         // 获取当前window
+    //         const mainWindow = BrowserWindow.getFocusedWindow();
+    //         if (mainWindow) {
+    //           checkShowPage(mainWindow);
+    //         }
+    //       },
+    //     },
+    //     {
+    //       label: 'note',
+    //       click: () => {
+    //         // 获取当前window
+    //         const mainWindow = BrowserWindow.getFocusedWindow();
+    //         if (mainWindow) {
+    //           checkShowPage(mainWindow, '/web/note');
+    //         }
+    //       },
+    //     },
+    //     {
+    //       label: 'root-center',
+    //       click: () => {
+    //         // 获取当前window
+    //         const mainWindow = BrowserWindow.getFocusedWindow();
+    //         if (mainWindow) {
+    //           checkShowPage(mainWindow, '/root/center');
+    //         }
+    //       },
+    //     },
+    //     {
+    //       label: '打开配置',
+    //       click: async () => {
+    //         createEnterPage();
+    //       },
+    //     },
+    //     {
+    //       label: '打开应用市场',
+    //       click: async () => {
+    //         createAppPackagesPage();
+    //       },
+    //     },
+    //   ],
+    // },
     {
       label: '编辑',
       submenu: [
