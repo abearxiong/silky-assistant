@@ -7,7 +7,7 @@
     "dev": "vite --config vite.config.ts",
     "build": "cross-env NODE_ENV=production vite build --config vite.config.ts",
     "build:watch": "cross-env NODE_ENV=development vite build --config vite.config.ts -w",
-    "build:mac": "electron-builder --mac",
+    "build:mac": "electron-builder --mac --universal",
     "build:win": "electron-builder --win",
     "build:linux": "electron-builder --linux",
     "watch:electron": "electron app-dist/main.js --watch",
@@ -63,12 +63,7 @@
       ]
     },
     "mac": {
-      "target": "dmg",
-      "arch": [
-        "x64",
-        "arm64",
-        "universal"
-      ]
+      "target": "dmg"
     },
     "nsis": {
       "oneClick": false,
